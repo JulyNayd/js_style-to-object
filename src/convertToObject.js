@@ -12,10 +12,10 @@ function convertToObject(sourceString) {
 
   const getArrayFromString = sourceString.split(';');
 
-  const keyValuePairsArray = getArrayFromString // Renamed formateString
+  const keyValuePairsArray = getArrayFromString
     .filter((arrString) => arrString.trim().length > 0)
     .map((arrString) => {
-      const [key, value] = arrString.split(':');
+      const [key, value] = arrString.split(':').map((part) => part.trim());
 
       return {
         [key]: value.split(', ').join(','),
