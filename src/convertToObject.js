@@ -12,16 +12,16 @@ function convertToObject(sourceString) {
 
   const getArrayFromString = sourceString.split(';');
 
-  const formateString = getArrayFromString
+  const keyValuePairsArray = getArrayFromString // Renamed formateString
     .filter((arrString) => arrString.trim().length > 0)
     .map((arrString) => {
-      const [key, value] = arrString.split(':').map((part) => part.trim());
+      const [key, value] = arrString.split(':');
 
       return {
         [key]: value.split(', ').join(','),
       };
     });
-  const outPutObj = Object.assign({}, ...formateString);
+  const outPutObj = Object.assign({}, ...keyValuePairsArray);
 
   return outPutObj;
 }
