@@ -18,10 +18,7 @@ function convertToObject(sourceString) {
       const [key, value] = arrString.split(':').map((part) => part.trim());
 
       return {
-        [key]: value
-          .split(', ')
-          .map((v) => v.trim())
-          .join(','),
+        [key]: value.split(', ').join(','),
       };
     });
   const outPutObj = Object.assign({}, ...formateString);
